@@ -1,5 +1,9 @@
 {
   "tasks": {
-    "dev": "deno run --watch -R src/$DAY/main.ts"
+    "dev": "deno test --watch -R src/$DAY/test.ts",
+    "solve": "deno run -R src/$DAY/main.ts"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@^1.0.8"
   }
 }
