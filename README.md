@@ -5,10 +5,18 @@
 ## Usage
 
 Duplicate the `src/00` directory and rename it to the two-digit, one-indexed number of the day's challenge.
-Then the following commmand will run the code for that day in watch mode:
+Paste the sample and input data into their respective files.
 
-```bash
+Use the `dev` commmand to run the tests in watch mode against the sample data:
+
+```sh
 DAY=XX deno run dev
+```
+
+Use the `solve` command to output a solution based on the input data:
+
+```sh
+DAY=XX deno run solve
 ```
 
 ## Useful references
