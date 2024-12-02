@@ -6,5 +6,5 @@ export async function main(target = "input") {
 }
 
 if (import.meta.main) {
-  console.log(main());
+  console.log(await main());
 }

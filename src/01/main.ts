@@ -1,3 +1,5 @@
+// { dist: 3246517, sim: 29379307 }
+
 export async function main(target: string) {
   const dirpath = new URL(".", import.meta.url).pathname;
   const text = await Deno.readTextFile(`${dirpath}/${target}.txt`);
