@@ -7,16 +7,22 @@
 Duplicate the `src/00` directory and rename it to the two-digit, one-indexed number of the day's challenge.
 Paste the sample and input data into their respective files.
 
-Use the `dev` commmand to run the tests in watch mode against the sample data:
+Use the `dev` task to run the tests in watch mode against the sample data:
 
 ```sh
 DAY=XX deno run dev
 ```
 
-Use the `solve` command to output a solution based on the input data:
+Use the `solve` task to output a solution based on the input data:
 
 ```sh
 DAY=XX deno run solve
+```
+
+Use the `test` task to run all tests against the sample data (mostly for CI):
+
+```sh
+deno run test
 ```
 
 ## Useful references
