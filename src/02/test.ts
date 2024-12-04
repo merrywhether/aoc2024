@@ -1,12 +1,12 @@
 import { assertEquals } from "@std/assert";
 import { main } from "./main.ts";
 
-Deno.test("correct strict safe count for sample", async () => {
+Deno.test("correct safe count for sample", async () => {
   const result = await main("sample");
-  assertEquals(result.safe, 2);
+  assertEquals(result.safeLines, 2);
 });
 
 Deno.test("correct dampended safe count for sample", async () => {
   const result = await main("sample");
-  assertEquals(result.dampSafe, 4);
+  assertEquals(result.dampenedSafeLines, 4);
 });

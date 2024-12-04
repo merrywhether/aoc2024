@@ -1,4 +1,4 @@
-// { safe: 660, dampSafe: 689 }
+// { safeLines: 660, dampenedSafeLines: 689 }
 
 export async function main(target = "input") {
   const dirpath = new URL(".", import.meta.url).pathname;
@@ -19,15 +19,15 @@ export async function main(target = "input") {
       });
 
       if (isSafe) {
-        agg.safe++;
-        agg.dampSafe++;
+        agg.safeLines++;
+        agg.dampenedSafeLines++;
         return agg;
       }
 
-      const isDampSafe = levels.some((_level, i) => {
+      const isSafeWithDampening = levels.some((_level, i) => {
         const test = Array.from(levels);
         test.splice(i, 1);
-        const dampDirection = test[1] - test[0] > 0 ? 1 : -1;
+        const direction = test[1] - test[0] > 0 ? 1 : -1;
 
         return test.every((level, i) => {
           if (i === test.length - 1) {
@@ -35,23 +35,19 @@ export async function main(target = "input") {
           }
 
           const difference = test[i + 1] - level;
-          return difference * dampDirection >= 1 &&
-            difference * dampDirection <= 3;
+          return difference * direction >= 1 &&
+            difference * direction <= 3;
         });
       });
 
-      if (isDampSafe) {
-        agg.dampSafe++;
+      if (isSafeWithDampening) {
+        agg.dampenedSafeLines++;
         return agg;
       }
-
-      console.log(line);
     }
 
-    console.log("---");
-
     return agg;
-  }, { safe: 0, dampSafe: 0 });
+  }, { safeLines: 0, dampenedSafeLines: 0 });
 }
 
 if (import.meta.main) {

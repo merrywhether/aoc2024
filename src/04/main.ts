@@ -22,8 +22,8 @@ export async function main(target = "input") {
     line.split("").filter((l) => l.length > 0)
   );
 
-  return data.reduce((acc, line, lineIdx) => {
-    const { wordCount, xCount } = line.reduce((lineAcc, char, charIdx) => {
+  return data.reduce((agg, line, lineIdx) => {
+    const { wordCount, xCount } = line.reduce((lineAgg, char, charIdx) => {
       wordTargets.forEach((target) => {
         if (char === target[0]) {
           // across
@@ -32,7 +32,7 @@ export async function main(target = "input") {
             data[lineIdx][charIdx + 2] === target[2] &&
             data[lineIdx][charIdx + 3] === target[3]
           ) {
-            lineAcc.wordCount++;
+            lineAgg.wordCount++;
           }
 
           // down
@@ -41,7 +41,7 @@ export async function main(target = "input") {
             data[lineIdx + 2][charIdx] === target[2] &&
             data[lineIdx + 3][charIdx] === target[3]
           ) {
-            lineAcc.wordCount++;
+            lineAgg.wordCount++;
           }
 
           // diagonal down right
@@ -50,7 +50,7 @@ export async function main(target = "input") {
             data[lineIdx + 2][charIdx + 2] === target[2] &&
             data[lineIdx + 3][charIdx + 3] === target[3]
           ) {
-            lineAcc.wordCount++;
+            lineAgg.wordCount++;
           }
 
           // diagonal down left
@@ -59,7 +59,7 @@ export async function main(target = "input") {
             data[lineIdx + 2][charIdx - 2] === target[2] &&
             data[lineIdx + 3][charIdx - 3] === target[3]
           ) {
-            lineAcc.wordCount++;
+            lineAgg.wordCount++;
           }
         }
       });
@@ -78,18 +78,18 @@ export async function main(target = "input") {
               data[lineIdx][charIdx + 2] === target[2] &&
                 data[lineIdx + 2][charIdx] === target[0]
             ) {
-              lineAcc.xCount++;
+              lineAgg.xCount++;
             }
           }
         }
       });
 
-      return lineAcc;
+      return lineAgg;
     }, { wordCount: 0, xCount: 0 });
 
-    acc.wordCount += wordCount;
-    acc.xCount += xCount;
-    return acc;
+    agg.wordCount += wordCount;
+    agg.xCount += xCount;
+    return agg;
   }, { wordCount: 0, xCount: 0 });
 }
 
