@@ -1,12 +1,12 @@
 import { assertEquals } from "@std/assert";
 import { main } from "./main.ts";
 
-Deno.test("correct quotient for sample", async () => {
+Deno.test("correct quotient sum for sample", async () => {
   const result = await main("sample");
-  assertEquals(result.mulQuo, 161);
+  assertEquals(result.quotientSum, 161);
 });
 
-Deno.test("correct quotient for sample2", async () => {
-  const result = await main("sample2");
-  assertEquals(result.doQuo, 48);
+Deno.test("correct quotient sum for sample with do", async () => {
+  const result = await main("sample-do");
+  assertEquals(result.doQuotientSum, 48);
 });

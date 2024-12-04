@@ -1,4 +1,4 @@
-// { dist: 3246517, sim: 29379307 }
+// { distance: 3246517, similiarity: 29379307 }
 
 export async function main(target: string) {
   const dirpath = new URL(".", import.meta.url).pathname;
@@ -13,22 +13,19 @@ export async function main(target: string) {
     return agg;
   }, { left: [] as number[], right: [] as number[] });
 
-  data.left.sort();
-  data.right.sort();
-
-  const stats = data.right.reduce((agg, val) => {
+  const frequencies = data.right.sort().reduce((agg, val) => {
     agg[val] ??= 0;
     agg[val] += 1;
     return agg;
   }, [] as number[]);
 
-  return data.left.reduce(
+  return data.left.sort().reduce(
     (agg, val, idx) => {
-      agg.dist = agg.dist + Math.abs(data.right[idx] - val);
-      agg.sim = agg.sim + val * (stats[val] ?? 0);
+      agg.distance += Math.abs(data.right[idx] - val);
+      agg.similiarity += val * (frequencies[val] ?? 0);
       return agg;
     },
-    { dist: 0, sim: 0 },
+    { distance: 0, similiarity: 0 },
   );
 }
 

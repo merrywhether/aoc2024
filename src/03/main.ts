@@ -1,6 +1,7 @@
-// { mulQuo: 163931492, doQuo: 76911921 }
+// { doQuotientSum: 76911921, quotientSum: 163931492 }
 
-// fun with eval()!
+// fun with eval()! (this signature is found in the input so we use it directly instead of parsing and reconstructing)
+// deno-lint-ignore no-unused-vars
 function mul(a: number, b: number) {
   return a * b;
 }
@@ -9,25 +10,28 @@ export async function main(target = "input") {
   const dirpath = new URL(".", import.meta.url).pathname;
   const text = await Deno.readTextFile(`${dirpath}${target}.txt`);
 
-  const mulMatches = text.matchAll(/mul\(\d{1,3},\d{1,3}\)/g);
+  const { doQuotientSum, otherQuotientSum } = text.matchAll(
+    /(mul\(\d{1,3},\d{1,3}\)|do\(\)|don't\(\))/g,
+  ).reduce(
+    (agg, match) => {
+      if (match[0] === "do()") {
+        agg.do = true;
+      } else if (match[0] === `don't()`) {
+        agg.do = false;
+      } else if (agg.do) {
+        agg.doQuotientSum += eval(match[0]);
+      } else {
+        agg.otherQuotientSum += eval(match[0]);
+      }
+      return agg;
+    },
+    { doQuotientSum: 0, do: true, otherQuotientSum: 0 },
+  );
 
-  const mulQuo = mulMatches.reduce((agg, match) => {
-    return agg + eval(match[0]);
-  }, 0);
-
-  const doMatches = text.matchAll(/(mul\(\d{1,3},\d{1,3}\)|do\(\)|don't\(\))/g);
-  const { doQuo } = doMatches.reduce((agg, match) => {
-    if (match[0] === "do()") {
-      agg.do = true;
-    } else if (match[0] === `don't()`) {
-      agg.do = false;
-    } else if (agg.do) {
-      agg.doQuo += eval(match[0]);
-    }
-    return agg;
-  }, { doQuo: 0, do: true });
-
-  return { mulQuo, doQuo };
+  return {
+    doQuotientSum,
+    quotientSum: doQuotientSum + otherQuotientSum,
+  };
 }
 
 if (import.meta.main) {
