@@ -1,4 +1,4 @@
-[![](https://img.shields.io/badge/stars%20⭐-01-yellow)](#2024-results)
+[![](https://img.shields.io/badge/stars%20⭐-10-yellow)](#2024-results)
 
 # AoC2024
 
