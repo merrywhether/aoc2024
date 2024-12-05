@@ -36,8 +36,8 @@ jobs:
             exit 1
           fi
 
-      - name: Update README stars
-        id: update_readme_stars
+      - name: Update README progress
+        id: update_readme_progress
         if: steps.check_commit_message.outcome == 'success' || github.event_name != 'push'
         uses: k2bd/advent-readme-stars@v1
         with:
@@ -45,8 +45,17 @@ jobs:
           year: 2024
           sessionCookie: ${{ secrets.AOC_SESSION }}
 
+      - name: Update README badge
+        id: update_readme_badge
+        if: steps.check_commit_message.outcome == 'success' || github.event_name != 'push'
+        uses: joblo2213/aoc-badges-action@v3
+        with:
+          userId: 4388690
+          year: 2024
+          session: ${{ secrets.AOC_SESSION }}
+
       - name: Commit changes
-        if: steps.update_readme_stars.outcome == 'success'
+        if: steps.update_readme_progress.conclusion == 'success' && steps.update_readme_badge.conclusion == 'success'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: auto-update README stars

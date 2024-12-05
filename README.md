@@ -1,3 +1,5 @@
+[![](https://img.shields.io/badge/stars%20⭐-01-yellow)](#2024-results)
+
 # AoC2024
 
 [Advent of Code 2024](https://adventofcode.com/2024) using(/learning) Deno and Zed.
