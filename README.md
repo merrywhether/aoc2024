@@ -25,6 +25,8 @@ Use the `test` task to run all tests against the sample data (mostly for CI):
 deno run test
 ```
 
+<!--- advent_readme_stars table --->
+
 ## Useful references
 
 - https://github.com/denoland/advent-of-code-2024
