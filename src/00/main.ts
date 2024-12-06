@@ -6,5 +6,7 @@ export async function main(target = "input") {
 }
 
 if (import.meta.main) {
+  const startTime = performance.now();
   console.log(await main());
+  console.log(`Elapsed: ${Math.round(performance.now() - startTime)}ms`);
 }

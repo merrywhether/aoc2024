@@ -1,4 +1,5 @@
 // { doQuotientSum: 76911921, quotientSum: 163931492 }
+// Elapsed: 4ms
 
 // fun with eval()! (this signature is found in the input so we use it directly instead of parsing and reconstructing)
 // deno-lint-ignore no-unused-vars
@@ -35,5 +36,7 @@ export async function main(target = "input") {
 }
 
 if (import.meta.main) {
+  const startTime = performance.now();
   console.log(await main());
+  console.log(`Elapsed: ${Math.round(performance.now() - startTime)}ms`);
 }

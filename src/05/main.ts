@@ -1,4 +1,5 @@
 // { legalUpdateMiddlePageSum: 5955, fixedUpdateMiddlePageSum: 4030 }
+// Elapsed: 11ms
 
 export async function main(target = "input") {
   const dirpath = new URL(".", import.meta.url).pathname;
@@ -65,5 +66,7 @@ export async function main(target = "input") {
 }
 
 if (import.meta.main) {
+  const startTime = performance.now();
   console.log(await main());
+  console.log(`Elapsed: ${Math.round(performance.now() - startTime)}ms`);
 }

@@ -1,4 +1,5 @@
 // { wordCount: 2718, xCount: 2046 }
+// Elapsed: 6ms
 
 const wordTarget = "XMAS";
 
@@ -94,5 +95,7 @@ export async function main(target = "input") {
 }
 
 if (import.meta.main) {
+  const startTime = performance.now();
   console.log(await main());
+  console.log(`Elapsed: ${Math.round(performance.now() - startTime)}ms`);
 }

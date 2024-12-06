@@ -1,6 +1,7 @@
 // { distance: 3246517, similiarity: 29379307 }
+// Elapsed: 3ms
 
-export async function main(target: string) {
+export async function main(target = "input") {
   const dirpath = new URL(".", import.meta.url).pathname;
   const text = await Deno.readTextFile(`${dirpath}/${target}.txt`);
 
@@ -30,5 +31,7 @@ export async function main(target: string) {
 }
 
 if (import.meta.main) {
-  console.log(await main("input"));
+  const startTime = performance.now();
+  console.log(await main());
+  console.log(`Elapsed: ${Math.round(performance.now() - startTime)}ms`);
 }

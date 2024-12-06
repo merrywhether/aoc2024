@@ -1,4 +1,5 @@
 // { safeLines: 660, dampenedSafeLines: 689 }
+// Elapsed: 3ms
 
 export async function main(target = "input") {
   const dirpath = new URL(".", import.meta.url).pathname;
@@ -51,5 +52,7 @@ export async function main(target = "input") {
 }
 
 if (import.meta.main) {
+  const startTime = performance.now();
   console.log(await main());
+  console.log(`Elapsed: ${Math.round(performance.now() - startTime)}ms`);
 }
