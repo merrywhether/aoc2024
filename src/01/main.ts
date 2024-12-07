@@ -3,7 +3,7 @@
 
 export async function main(target = "input") {
   const dirpath = new URL(".", import.meta.url).pathname;
-  const text = await Deno.readTextFile(`${dirpath}/${target}.txt`);
+  const text = await Deno.readTextFile(`${dirpath}${target}.txt`);
 
   const data = text.split("\n").reduce((agg, line) => {
     const match = line.match(/^(\d+)\s+(\d+)$/);

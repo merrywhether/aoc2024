@@ -2,6 +2,10 @@
   "version": "4",
   "specifiers": {
     "jsr:@std/assert@^1.0.8": "1.0.8",
+    "jsr:@std/cli@^1.0.8": "1.0.8",
+    "jsr:@std/crypto@^1.0.3": "1.0.3",
+    "jsr:@std/dotenv@~0.225.3": "0.225.3",
+    "jsr:@std/encoding@^1.0.5": "1.0.5",
     "jsr:@std/internal@^1.0.5": "1.0.5"
   },
   "jsr": {
@@ -11,13 +15,29 @@
         "jsr:@std/internal"
       ]
     },
+    "@std/cli@1.0.8": {
+      "integrity": "3762d8dc9a373715c08d871c38d45e637b25266f013a1d0bbe560bca409de94e"
+    },
+    "@std/crypto@1.0.3": {
+      "integrity": "a2a32f51ddef632d299e3879cd027c630dcd4d1d9a5285d6e6788072f4e51e7f"
+    },
+    "@std/dotenv@0.225.3": {
+      "integrity": "a95e5b812c27b0854c52acbae215856d9cce9d4bbf774d938c51d212711e8d4a"
+    },
+    "@std/encoding@1.0.5": {
+      "integrity": "ecf363d4fc25bd85bd915ff6733a7e79b67e0e7806334af15f4645c569fefc04"
+    },
     "@std/internal@1.0.5": {
       "integrity": "54a546004f769c1ac9e025abd15a76b6671ddc9687e2313b67376125650dc7ba"
     }
   },
   "workspace": {
     "dependencies": [
-      "jsr:@std/assert@^1.0.8"
+      "jsr:@std/assert@^1.0.8",
+      "jsr:@std/cli@^1.0.8",
+      "jsr:@std/crypto@^1.0.3",
+      "jsr:@std/dotenv@~0.225.3",
+      "jsr:@std/encoding@^1.0.5"
     ]
   }
 }

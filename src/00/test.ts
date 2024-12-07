@@ -1,7 +1,14 @@
 import { assertEquals } from "@std/assert";
 import { main } from "./main.ts";
 
-Deno.test("correct placeholder for sample", async () => {
-  const result = await main("sample");
+const target = "sample";
+
+Deno.test(`correct placeholder1 for ${target}`, async () => {
+  const result = await main(target);
+  assertEquals(result.text, "");
+});
+
+Deno.test(`correct placeholder2 for ${target}`, async () => {
+  const result = await main(target);
   assertEquals(result.text, "");
 });
