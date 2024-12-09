@@ -5,6 +5,7 @@
     "input": "deno run -NEWR src/crypto.ts --get=$DAY",
     "solve": "deno run -R src/$DAY/main.ts",
     "test": "deno test -R src/**/test.ts",
+    "test:all": "deno test -R src/**/*test.ts",
     "test:input": "deno test -R src/**/input.test.ts"
   },
   "imports": {

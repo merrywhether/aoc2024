@@ -1,8 +1,8 @@
 // { calibrationSum: 4998764814652, concatCalibrationSum: 37598910447546 }
-// Elapsed: 207ms
+// Elapsed: 94ms
 
 function concatNumbers(a: number, b: number) {
-  return Number(`${a}${b}`);
+  return a * Math.pow(10, Math.ceil(Math.log10(b + 1))) + b;
 }
 
 function numbersProduceTestValue(
