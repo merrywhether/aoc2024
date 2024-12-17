@@ -1,7 +1,7 @@
 # AoC 2024
 
-[![](https://img.shields.io/badge/stars%20⭐-22-yellow)](#2024-results)
-[![](https://img.shields.io/badge/days%20completed-11-red)](#2024-results)
+[![](https://img.shields.io/badge/stars%20⭐-24-yellow)](#2024-results)
+[![](https://img.shields.io/badge/days%20completed-12-red)](#2024-results)
 
 [Advent of Code 2024](https://adventofcode.com/2024) using(/learning) Deno and Zed.
 
@@ -74,6 +74,7 @@ deno run test:input
 | [Day 9](https://adventofcode.com/2024/day/9) | ⭐ | ⭐ |
 | [Day 10](https://adventofcode.com/2024/day/10) | ⭐ | ⭐ |
 | [Day 11](https://adventofcode.com/2024/day/11) | ⭐ | ⭐ |
+| [Day 13](https://adventofcode.com/2024/day/13) | ⭐ | ⭐ |
 <!--- advent_readme_stars table --->
 
 ## Useful references
