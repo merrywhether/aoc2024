@@ -1,7 +1,5 @@
 name: Update README ⭐
 on:
-  schedule:
-    - cron: "0 11 * 12 *"
   push:
     branches:
       - main
@@ -15,15 +13,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Check year for cron
-        if: github.event_name == 'schedule'
-        run: |
-          current_year=$(date +'%Y')
-          if [ "$current_year" -ne "2024" ]; then
-            echo "No longer 2024, delete this action's schedule."
-            exit 1
-          fi
 
       - name: Check commit message for push
         id: check_commit_message
